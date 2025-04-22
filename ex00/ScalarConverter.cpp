@@ -7,7 +7,7 @@ void print_pseudo_literal(std::string s) {
     print_color("char : impossible");
     print_color("int : impossible");
     print_color("float : " + s + "f");
-    print_color("char : " + s);
+    print_color("double : " + s);
 }
 
 void print_char_info(char c) {
@@ -47,7 +47,7 @@ void ScalarConverter::convert(std::string s) {
         if (static_cast<long long int>(original) == original)
             std::cout << std::fixed << std::setprecision(1);
         else std::cout << std::fixed << std::setprecision(50);
-        if (original < -std::numeric_limits<char>::max() ||
+        if (original < std::numeric_limits<char>::min() ||
             original > std::numeric_limits<char>::max())
             print_color("char: Overflow error");
         else if (!isprint(original)) print_color("char: Non displayable");

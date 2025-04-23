@@ -36,7 +36,8 @@ void ScalarConverter::convert(std::string s) {
     }
     if (!dot_count) _float = false, _double = false;
     if (!f_count) _float = false;
-    if (s == "-inf" || s == "+inf" || s == "nan") print_pseudo_literal(s);
+    if (s == "-inf" || s == "+inf" || s == "nan" || s == "-inff" || s == "+inff")
+        print_pseudo_literal(s);
     else if (s.length() == 3 && s[0] == s[2] && s[0] == '\'') print_char_info(s[1]);
     else if (_int || _float || _double) {
         double original = std::atof(s.c_str());

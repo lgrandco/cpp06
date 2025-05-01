@@ -9,7 +9,7 @@ private:
     Serializer();
     ~Serializer();
     Serializer(Serializer&);
-    Serializer& operator=(Serializer&);
+    Serializer& operator=(const Serializer&);
 
 public:
     static uintptr_t serialize(Data* ptr);

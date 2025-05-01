@@ -26,14 +26,19 @@ void identify(Base& p) {
             B b = dynamic_cast<B&>(p);
             print_color("It's a reference to a B object", std::cout, true);
         } catch (std::exception& e) {
-            print_color("It's a reference to a C object", std::cout, true);
+            try {
+                C c = dynamic_cast<C&>(p);
+                print_color("It's a reference to a C object", std::cout, true);
+            } catch (std::exception& e) { print_color("Unidentified reference", std::cerr, true); }
         }
     }
 }
 
 int main() {
     print_color("Creating a pointer to either A, B or C");
-    identify(generate());
+    Base* ptr = generate();
+    identify(ptr);
+    delete ptr;
 
     A a;
     print_color("\nCreating an A object");

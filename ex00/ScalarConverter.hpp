@@ -9,7 +9,7 @@ private:
     ScalarConverter();
     ~ScalarConverter() {};
     ScalarConverter(ScalarConverter&);
-    ScalarConverter& operator=(ScalarConverter&);
+    ScalarConverter& operator=(const ScalarConverter&);
 
 public:
     void static convert(const std::string&);

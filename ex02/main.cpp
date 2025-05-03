@@ -13,6 +13,7 @@ void identify(Base* p) {
     if (dynamic_cast<A*>(p)) print_color("It's a pointer to a A object");
     else if (dynamic_cast<B*>(p)) print_color("Its a pointer to a B object");
     else if (dynamic_cast<C*>(p)) print_color("Its a pointer to a C object");
+    else if (p == NULL) print_color("Null pointer");
     else print_color("Unidentified pointer");
 }
 
